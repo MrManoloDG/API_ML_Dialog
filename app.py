@@ -1,15 +1,18 @@
 import flask
 
-app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+application = flask.Flask(__name__)
+application.config["DEBUG"] = True
 
 
-@app.route('/', methods=['GET'])
+@application.route('/', methods=['GET'])
 def home():
     return "Hello World"
 
-@app.route('/hello/<username>', methods=['GET'])
+@application.route('/hello/<username>', methods=['GET'])
 def hello(username):
     return "Hello," + username
 
-app.run()
+if __name__ == "__main__":
+    application.run(host='127.0.0.1')
+
+
