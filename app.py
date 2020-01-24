@@ -1,4 +1,5 @@
 import flask
+import os
 
 application = flask.Flask(__name__)
 application.config["DEBUG"] = True
@@ -13,6 +14,6 @@ def hello(username):
     return "Hello," + username
 
 if __name__ == "__main__":
-    application.run()
+    application.run(port=os.environ["PORT"])
 
 
